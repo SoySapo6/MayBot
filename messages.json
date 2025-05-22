@@ -1,0 +1,45 @@
+[
+    {
+        "Command": "hola",
+        "Reply": "Holaaaaaa ^^"
+    },
+    {
+        "Command": "menu",
+        "Reply": "🤖 **MENÚ DEL BOT**\n\n📋 Comandos disponibles:\n• hola - Saludo\n• info - Información del bot\n• tiempo - Consultar clima\n• imagen - Enviar imagen de ejemplo\n• ayuda - Ver este menú"
+    },
+    {
+        "Command": "info",
+        "Reply": "ℹ️ **INFORMACIÓN DEL BOT**\n\n🔹 Versión: 1.0.0\n🔹 Desarrollado con Baileys\n🔹 Estado: Activo ✅"
+    },
+    {
+        "Command": "tiempo",
+        "Reply": "🌤️ Consultando el clima...",
+        "Function": "getWeather"
+    },
+    {
+        "Command": "imagen",
+        "Reply": "📸 Enviando imagen...",
+        "File": "assets/example.jpg"
+    },
+    {
+        "Command": "documento",
+        "Reply": "📄 Enviando documento...",
+        "File": "assets/documento.pdf"
+    },
+    {
+        "Command": "audio",
+        "Reply": "🎵 Enviando audio...",
+        "File": "assets/audio.mp3"
+    },
+    {
+        "Command": "funciones",
+        "Reply": "⚙️ Ejecutando función personalizada...",
+        "Function": "customExample"
+    },
+    {
+        "Command": "completo",
+        "Reply": "🔄 Respuesta completa con función y archivo",
+        "Function": "processComplete",
+        "File": "assets/complete.png"
+    }
+]
