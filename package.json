@@ -1,5 +1,5 @@
 {
-  "name": "whatsapp-bot",
+  "name": "maybot",
   "version": "1.0.0",
   "description": "WhatsApp Web connection using Baileys",
   "main": "index.js",
