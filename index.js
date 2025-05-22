@@ -11,16 +11,36 @@ async function connectToWhatsApp() {
         // Configurar para usar código de emparejamiento
         auth: state,
         printQRInTerminal: false, // Desactivar QR ya que usaremos código de emparejamiento
-        browser: ['WhatsApp Bot', 'Chrome', '1.0.0']
+        browser: ['WhatsApp Bot', 'Chrome', '1.0.0'],
+        // Configuraciones adicionales para mejorar estabilidad
+        defaultQueryTimeoutMs: 60000,
+        keepAliveIntervalMs: 30000,
+        // Configurar user agent más realista
+        version: [2, 3000, 1020608496],
+        // Activar modo de depuración reducido
+        logger: {
+            level: 'warn' // Reducir logs
+        }
     });
 
     // Solicitar código de emparejamiento si no hay credenciales
     if (!sock.authState.creds.registered) {
         const phoneNumber = await askForPhoneNumber();
-        const code = await sock.requestPairingCode(phoneNumber);
-        console.log(`\n🔐 CÓDIGO DE EMPAREJAMIENTO: ${code}`);
-        console.log('📱 Ve a WhatsApp > Dispositivos vinculados > Vincular con número de teléfono');
-        console.log('✨ Ingresa este código en tu WhatsApp móvil\n');
+        
+        // Limpiar y formatear el número de teléfono
+        const cleanNumber = phoneNumber.replace(/\D/g, '');
+        
+        try {
+            const code = await sock.requestPairingCode(cleanNumber);
+            console.log(`\n🔐 CÓDIGO DE EMPAREJAMIENTO: ${code}`);
+            console.log('📱 Ve a WhatsApp > Dispositivos vinculados > Vincular con número de teléfono');
+            console.log('✨ Ingresa este código en tu WhatsApp móvil');
+            console.log(`📞 Número usado: ${cleanNumber}`);
+            console.log('⚠️  Si no funciona, verifica que el número sea correcto\n');
+        } catch (error) {
+            console.error('❌ Error generando código de emparejamiento:', error.message);
+            console.log('💡 Intenta con un número diferente o verifica el formato');
+        }
     }
 
     // Manejar actualizaciones de conexión
@@ -34,15 +54,36 @@ async function connectToWhatsApp() {
         
         if (connection === 'close') {
             const shouldReconnect = (lastDisconnect?.error)?.output?.statusCode !== DisconnectReason.loggedOut;
-            console.log('Conexión cerrada debido a:', lastDisconnect?.error, ', reconectando:', shouldReconnect);
+            const statusCode = (lastDisconnect?.error)?.output?.statusCode;
             
-            // Reconectar si no fue desconectado por logout
-            if (shouldReconnect) {
-                connectToWhatsApp();
+            console.log('🔌 Conexión cerrada');
+            console.log('📊 Código de estado:', statusCode);
+            console.log('🔄 ¿Reconectar?', shouldReconnect);
+            
+            // Manejar diferentes tipos de desconexión
+            if (statusCode === DisconnectReason.badSession) {
+                console.log('❌ Sesión inválida. Eliminando credenciales...');
+                // Eliminar archivos de autenticación
+                const fs = require('fs');
+                const path = require('path');
+                const authDir = path.join(__dirname, 'auth_info_baileys');
+                if (fs.existsSync(authDir)) {
+                    fs.rmSync(authDir, { recursive: true, force: true });
+                }
+                console.log('🔄 Reinicia el bot para generar nuevo código');
+                process.exit(1);
+            } else if (statusCode === DisconnectReason.restartRequired) {
+                console.log('🔄 Reinicio requerido...');
+                setTimeout(() => connectToWhatsApp(), 5000);
+            } else if (shouldReconnect) {
+                console.log('⏳ Reconectando en 5 segundos...');
+                setTimeout(() => connectToWhatsApp(), 5000);
             }
         } else if (connection === 'open') {
             console.log('✅ ¡Conectado exitosamente a WhatsApp!');
             console.log('🤖 Bot listo para recibir mensajes');
+        } else if (connection === 'connecting') {
+            console.log('🔄 Conectando a WhatsApp...');
         }
     });
 
@@ -195,7 +236,8 @@ function askForPhoneNumber() {
 
         rl.question('📱 Ingresa tu número de teléfono (con código de país, ej: 521234567890): ', (phone) => {
             rl.close();
-            resolve(phone);
+            console.log(`📞 Número ingresado: ${phone}`);
+            resolve(phone.trim());
         });
     });
 }
