@@ -1,11 +1,13 @@
 {
-  "name": "maybot",
+  "name": "whatsapp-bot",
   "version": "1.0.0",
   "description": "WhatsApp Web connection using Baileys",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "qr": "node index-qr.js",
+    "dev": "nodemon index.js",
+    "clean": "rm -rf auth_info_baileys"
   },
   "dependencies": {
     "maybailyes": "2.0.1",
