@@ -30,6 +30,7 @@ import NodeCache from 'node-cache'
 const { CONNECTING } = ws
 const { chain } = lodash
 const PORT = process.env.PORT || process.env.SERVER_PORT || 3000
+
 let { say } = cfonts
 console.log(chalk.magentaBright('\n❀ Iniciando...'))
 say('Yuki Suou', {
@@ -44,6 +45,7 @@ colors: ['cyan', 'magenta', 'yellow']
 })
 protoType()
 serialize()
+
 global.__filename = function filename(pathURL = import.meta.url, rmPrefix = platform !== 'win32') {
 return rmPrefix ? /file:\/\/\//.test(pathURL) ? fileURLToPath(pathURL) : pathURL : pathToFileURL(pathURL).toString()
 }
@@ -57,6 +59,7 @@ global.timestamp = { start: new Date() }
 const __dirname = global.__dirname(import.meta.url)
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.prefix = new RegExp('^[#!./-]')
+
 global.db = new Low(/https?:\/\//.test(global.opts['db'] || '') ? new cloudDBAdapter(global.opts['db']) : new JSONFile('database.json'))
 global.DATABASE = global.db
 global.loadDatabase = async function loadDatabase() {
@@ -80,6 +83,7 @@ settings: {},
 global.db.chain = chain(global.db.data)
 }
 loadDatabase()
+
 const { state, saveState, saveCreds } = await useMultiFileAuthState(global.sessions)
 const msgRetryCounterMap = new Map()
 const msgRetryCounterCache = new NodeCache({ stdTTL: 0, checkperiod: 0 })
@@ -136,6 +140,7 @@ maxIdleTimeMs: 60000,
 }
 global.conn = makeWASocket(connectionOptions)
 conn.ev.on("creds.update", saveCreds)
+
 if (!fs.existsSync(`./${sessions}/creds.json`)) {
 if (opcion === '2' || methodCode) {
 opcion = '2'
@@ -169,6 +174,7 @@ const tmp = [os.tmpdir(), 'tmp', `${jadi}`]
 tmp.forEach((filename) => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete']))
 }}, 30 * 1000)
 }
+
 async function connectionUpdate(update) {
 const { connection, lastDisconnect, isNewLogin } = update
 global.stopped = connection
@@ -240,6 +246,7 @@ return true
 process.on('unhandledRejection', (reason, promise) => {
 console.error("Rechazo no manejado detectado:", reason)
 })
+
 global.rutaJadiBot = join(__dirname, `./${jadi}`)
 if (global.yukiJadibts) {
 if (!existsSync(global.rutaJadiBot)) {
@@ -258,6 +265,7 @@ const readBotPath = readdirSync(botPath)
 if (readBotPath.includes(creds)) {
 yukiJadiBot({ pathYukiJadiBot: botPath, m: null, conn, args: '', usedPrefix: '/', command: 'serbot' })
 }}}}}
+
 const pluginFolder = global.__dirname(join(__dirname, './plugins/index'))
 const pluginFilter = (filename) => /\.js$/.test(filename)
 global.plugins = {}
@@ -347,6 +355,7 @@ return phoneUtil.isValidNumber(parsedNumber)
 } catch (error) {
 return false
 }}
+
 async function joinChannels(sock) {
 for (const value of Object.values(global.ch)) {
 if (typeof value === 'string' && value.endsWith('@newsletter')) {
