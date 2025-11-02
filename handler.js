@@ -1,4 +1,4 @@
-import { smsg } from "./lib/simple.js" 
+import { smsg } from "./lib/simple.js"
 import { format } from "util"
 import { fileURLToPath } from "url"
 import path, { join } from "path"
@@ -6,12 +6,14 @@ import fs, { unwatchFile, watchFile } from "fs"
 import chalk from "chalk"
 import fetch from "node-fetch"
 import ws from "ws"
+
 const { proto } = (await import("@whiskeysockets/baileys")).default
 const isNumber = x => typeof x === "number" && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(function () {
 clearTimeout(this)
 resolve()
 }, ms))
+
 export async function handler(chatUpdate) {
 this.msgqueque = this.msgqueque || []
 this.uptime = this.uptime || Date.now()
@@ -148,6 +150,7 @@ const botGroup = (m.isGroup ? participants.find((u) => conn.decodeJid(u.jid) == 
 const isRAdmin = userGroup?.admin == "superadmin" || false
 const isAdmin = isRAdmin || userGroup?.admin == "admin" || false
 const isBotAdmin = botGroup?.admin || false
+
 const ___dirname = path.join(path.dirname(fileURLToPath(import.meta.url)), "./plugins")
 for (const name in global.plugins) {
 const plugin = global.plugins[name]
@@ -225,8 +228,10 @@ cmd.test(command) : cmd === command) :
 typeof plugin.command === "string" ?
 plugin.command === command : false
 global.comando = command
+
 if (!isOwners && settings.self) return
 if ((m.id.startsWith("NJX-") || (m.id.startsWith("BAE5") && m.id.length === 16) || (m.id.startsWith("B24E") && m.id.length === 20))) return
+
 if (global.db.data.chats[m.chat].primaryBot && global.db.data.chats[m.chat].primaryBot !== this.user.jid) {
 const primaryBotConn = global.conns.find(conn => conn.user.jid === global.db.data.chats[m.chat].primaryBot && conn.ws.socket && conn.ws.socket.readyState !== ws.CLOSED)
 const participants = m.isGroup ? (await this.groupMetadata(m.chat).catch(() => ({ participants: [] }))).participants : []
@@ -237,6 +242,7 @@ throw !1
 global.db.data.chats[m.chat].primaryBot = null
 }} else {
 }
+
 if (!isAccept) continue
 m.plugin = name
 if (isAccept) { global.db.data.users[m.sender].commands = (global.db.data.users[m.sender].commands || 0) + 1 }
@@ -347,6 +353,7 @@ if (!opts["noprint"]) await (await import("./lib/print.js")).default(m, this)
 console.warn(err)
 console.log(m.message)
 }}}
+
 global.dfail = (type, m, conn) => {
 const msg = {
 rowner: `『✦』El comando *${comando}* solo puede ser usado por los creadores del bot.`, 
