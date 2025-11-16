@@ -245,7 +245,7 @@ global.db.data.chats[m.chat].primaryBot = null
 
 if (!isAccept) continue
 m.plugin = name
-if (isAccept) { global.db.data.users[m.sender].commands = (global.db.data.users[m.sender].commands || 0) + 1 }
+global.db.data.users[m.sender].commands++
 if (chat) {
 const botId = this.user.jid
 const primaryBotId = chat.primaryBot
