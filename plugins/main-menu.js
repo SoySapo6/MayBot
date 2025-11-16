@@ -5,7 +5,7 @@ let mentionedJid = await m.mentionedJid
 let userId = mentionedJid && mentionedJid[0] ? mentionedJid[0] : m.sender
 let totalreg = Object.keys(global.db.data.users).length
 let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length
-    
+
 let txt = `̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮
 ︶•︶°︶•︶°︶•︶°︶•︶°︶•︶°︶
 > ❀ Hola! @${userId.split('@')[0]}, Soy *${botname}*, Aquí tienes la lista de comandos.
@@ -72,6 +72,8 @@ let txt = `̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮  
 > ✿ Comandos de *Descargas* para descargar archivos de varias fuentes.
 ✦ *#tiktok • #tt* + [Link] / [busqueda]
 > ⸙ Descargar un video de TikTok.
+✦ *#wagroups • #wpgroups* + [busqueda]
+> ⸙ Buscar grupos de WhatsApp.
 ✦ *#mediafire • #mf* + [Link]
 > ⸙ Descargar un archivo de MediaFire.
 ✦ *#mega • #mg* + [Link]
@@ -206,6 +208,8 @@ let txt = `̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮   ̮  
 > ⸙ Traducir palabras en otros idiomas.
 ✦ *#ia • #gemini*
 > ⸙ Preguntar a Chatgpt.
+✦ *#iavoz • #aivoz*
+> ⸙ Hablar o preguntar a chatgpt mexicano modo voz.
 ✦ *#tourl • #catbox*
 > ⸙ Convertidor de imágen/video en urls.
 ✦ *#wiki • #wikipedia*
