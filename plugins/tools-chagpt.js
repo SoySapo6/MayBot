@@ -53,13 +53,23 @@ if (!res.data?.status || !output) throw new Error(`Respuesta inválida de ${comm
 await conn.sendMessage(m.chat, { text: output }, { quoted: m })
 await m.react('✔️')
 break
-}}} catch (error) {
+}
+case 'iavoz': case 'aivoz': case 'vozia': {
+if (!text) return conn.reply(m.chat, `❀ Ingrese lo que desea decirle a la inteligencia artificial con voz`, m)
+await m.react('🕒')
+const apiURL = `${global.APIs.adonix.url}/ai/iavoz?apikey=${global.APIs.adonix.key}&q=${encodeURIComponent(text)}&voice=Jorge`
+const response = await axios.get(apiURL, { responseType: 'arraybuffer' })
+await conn.sendMessage(m.chat, { audio: Buffer.from(response.data), mimetype: 'audio/mpeg' }, { quoted: m })
+await m.react('✔️')
+break
+}
+}} catch (error) {
 await m.react('✖️')
 conn.reply(m.chat, `⚠︎ Se ha producido un problema.\n> Usa *${usedPrefix}report* para informarlo.\n\n${error.message}`, m)
 }}
 
-handler.command = ['gemini', 'bard', 'openai', 'dalle', 'flux', 'ia', 'chatgpt', 'luminai']
-handler.help = ['gemini', 'bard', 'openai', 'dalle', 'flux', 'ia', 'chatgpt', 'luminai']
+handler.command = ['gemini', 'bard', 'openai', 'dalle', 'flux', 'ia', 'chatgpt', 'luminai', 'iavoz']
+handler.help = ['gemini', 'bard', 'openai', 'dalle', 'flux', 'ia', 'chatgpt', 'luminai', 'iavoz', 'aivoz', 'vozia']
 handler.tags = ['tools']
 handler.group = true
 
