@@ -21,7 +21,7 @@ global.libreria = "@soymaycol/baileys"
 global.vs = "Latest"
 global.sessions = "MayBot/Principal"
 global.jadi = "MayBot/Subbots"
-global.yukiJadibts = true
+global.mayJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
