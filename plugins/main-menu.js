@@ -1,7 +1,7 @@
 let handler = async (m, { conn, args }) => {
     let userId = m.mentionedJid?.[0] || m.sender
     let categories = {}
-
+    
     for (let plugin of Object.values(global.plugins)) {
         if (!plugin.help || !plugin.tags) continue
         for (let tag of plugin.tags) {
@@ -22,17 +22,16 @@ let handler = async (m, { conn, args }) => {
     let menuText = `•——————•°•✿•°•——————•
 ╰┈➤ MαყBσƚ ⌇°•
 ⊱┊ ᴴᵉᶜʰᵒ ᵖᵒʳ ${global.etiqueta}
+➮ 𝐇𝐨𝐫𝐚: °❀*${hora}*
+
 `.trim()
 
     for (let [tag, cmds] of Object.entries(categories)) {
         let tagName = toStyled(tag)
         menuText += `
 ೃ‧₊› ${tagName} ：
-`
-        cmds.forEach((cmd, i) => {
-            menuText += ' '.repeat(i) + `╰┈➤ ${cmd}\n`
-        })
-        menuText += `
+${cmds.map(cmd => `╰┈➤ ${cmd}`).join('\n')}
+
 ↶*ೃ✧˚. ❃ ↷ ˊ-↶*ೃ✧˚. ❃ ↷ ˊ-
 `
     }
@@ -42,8 +41,8 @@ let handler = async (m, { conn, args }) => {
         contextInfo: {
             externalAdReply: {
                 title: global.canalNombreM[0],
-                body: '⊱┊ MαყBσƚ ᵇʸ ˢᵒʸᵐᵃʸᶜᵒˡ ❦',
-                thumbnailUrl: 'https://files.catbox.moe/396oee.png',
+                body: 'MαყBσƚ',
+                thumbnailUrl: 'https://files.catbox.moe/flzrmt.png',
                 sourceUrl: 'https://mayapi.ooguy.com',
                 mediaType: 1,
                 renderLargerThumbnail: true
