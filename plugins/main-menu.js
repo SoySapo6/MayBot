@@ -23,7 +23,7 @@ let handler = async (m, { conn, args }) => {
 ╰┈➤ MαყBσƚ ⌇°•
 ⊱┊ ᴴᵉᶜʰᵒ ᵖᵒʳ ${global.etiqueta}
 ➮ 𝐇𝐨𝐫𝐚: °❀ *${hora}*
-➮ 𝐅𝐞𝐜𝐡𝐚: °❀ *${hora}*
+➮ 𝐅𝐞𝐜𝐡𝐚: °❀ *${fecha}*
 .·:*¨¨* ≈☆≈ *¨¨*:·.
 ➮ 𝐓𝐢𝐩𝐨: °❀ *${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-Bot')}*
 ➮ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨𝐬: °❀ *${totalreg.toLocaleString()}*
