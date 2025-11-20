@@ -11,39 +11,39 @@ global.botNumber = "" //Ejemplo: 573218138672
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.owner = ["573196588149", "5492916450307", "5216671548329"]
-global.suittag = ["573196588149"] 
+global.owner = ["51921826291"]
+global.suittag = [] 
 global.prems = []
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.libreria = "Baileys Multi Device"
-global.vs = "^1.8.2|Latest"
-global.sessions = "Sessions/Principal"
-global.jadi = "Sessions/SubBot"
+global.libreria = "@soymaycol/baileys"
+global.vs = "Latest"
+global.sessions = "MayBot/Principal"
+global.jadi = "MayBot/Subbots"
 global.yukiJadibts = true
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.botname = "ᥡᥙkі sᥙ᥆ᥙ"
-global.textbot = "ᥡᥙkі, mᥲძᥱ ᥕі𝗍һ ᑲᥡ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ"
-global.dev = "© ⍴᥆ᥕᥱrᥱძ ᑲᥡ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"
-global.author = "© mᥲძᥱ ᥕі𝗍һ ᑲᥡ ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"
-global.etiqueta = "ⁱᵃᵐ|𝔇ĕ𝐬†𝓻⊙γ𒆜"
-global.currency = "¥enes"
-global.banner = "https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742678744381.jpeg"
-global.icono = "https://raw.githubusercontent.com/The-King-Destroy/Adiciones/main/Contenido/1742678797993.jpeg"
+global.botname = "MαყBσƚ ©"
+global.textbot = "MαყBσƚ © • ცყ ʂơყɱąყƈơƖ"
+global.dev = "ʂơყɱąყƈơƖ"
+global.author = "ʂơყɱąყƈơƖ <3"
+global.etiqueta = "ˢᵒʸᵐᵃʸᶜᵒˡ"
+global.currency = "𝐃𝐨𝐥𝐚𝐫𝐞𝐬"
+global.banner = "https://files.catbox.moe/x8xyh8.jpeg"
+global.icono = "https://files.catbox.moe/s4aorc.jpg"
 global.catalogo = fs.readFileSync('./lib/catalogo.jpg')
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
 
-global.group = "https://chat.whatsapp.com/HaKf6ezcwdbGzmH782eBal"
-global.community = "https://chat.whatsapp.com/G0kXqsteJFU74yrLtg79o6"
-global.channel = "https://whatsapp.com/channel/0029Vb64nWqLo4hb8cuxe23n"
-global.github = "https://github.com/The-King-Destroy/YukiBot-MD"
-global.gmail = "thekingdestroy507@gmail.com"
+global.group = "https://chat.whatsapp.com/JNQMGcG9jl00jYBM1iV8Jn"
+global.community = "https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY"
+global.channel = "https://whatsapp.com/channel/0029VbBBNfH4Y9ltpS4C8w3c"
+global.github = "https://github.com/SoySapo6/MayBot"
+global.gmail = "soymaycol.cn@gmail.com"
 global.ch = {
-ch1: "120363401404146384@newsletter"
+ch1: "120363406779062566@newsletter"
 }
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
@@ -55,7 +55,8 @@ vreden: { url: "https://api.vreden.web.id", key: null },
 delirius: { url: "https://api.delirius.store", key: null },
 zenzxz: { url: "https://api.zenzxz.my.id", key: null },
 siputzx: { url: "https://api.siputzx.my.id", key: null },
-adonix: { url: "https://api-adonix.ultraplus.click", key: 'Destroy-xyz' }
+adonix: { url: "https://api-adonix.ultraplus.click", key: 'Destroy-xyz' },
+mayapi: { url: "https://mayapi.ooguy.com", key: 'soymaycol' }
 }
 
 //*─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─⭒─ׄ─ׅ─ׄ─*
