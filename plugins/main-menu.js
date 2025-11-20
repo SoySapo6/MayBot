@@ -36,7 +36,6 @@ let handler = async (m, { conn, args }) => {
     for (let [tag, cmds] of Object.entries(categories)) {
         let tagName = toStyled(tag)
         menuText += `
-        
 ೃ‧₊› ${tagName} ：
 ${cmds.map(cmd => `╰┈➤ ${cmd}`).join('\n')}
 
