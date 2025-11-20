@@ -22,7 +22,8 @@ let handler = async (m, { conn, args }) => {
     let menuText = `•——————•°•✿•°•——————•
 ╰┈➤ MαყBσƚ ⌇°•
 ⊱┊ ᴴᵉᶜʰᵒ ᵖᵒʳ ${global.etiqueta}
-➮ 𝐇𝐨𝐫𝐚: °❀*${hora}*
+➮ 𝐇𝐨𝐫𝐚: °❀ *${hora}*
+➮ 𝐅𝐞𝐜𝐡𝐚: °❀ *${hora}*
 
 `.trim()
 
@@ -42,7 +43,7 @@ ${cmds.map(cmd => `╰┈➤ ${cmd}`).join('\n')}
             externalAdReply: {
                 title: global.canalNombreM[0],
                 body: 'MαყBσƚ',
-                thumbnailUrl: 'https://files.catbox.moe/flzrmt.png',
+                thumbnailUrl: 'https://files.catbox.moe/0dvlsr.jpg',
                 sourceUrl: 'https://mayapi.ooguy.com',
                 mediaType: 1,
                 renderLargerThumbnail: true
