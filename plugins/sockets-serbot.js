@@ -17,11 +17,38 @@ let crm3 = "SBpbmZvLWRvbmFyLmpz"
 let crm4 = "IF9hdXRvcmVzcG9uZGVyLmpzIGluZm8tYm90Lmpz"
 let drm1 = ""
 let drm2 = ""
-let rtx = "*❀ SER BOT • MODE QR*\n\n✰ Con otro celular o en la PC escanea este QR para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Escanee este codigo QR para iniciar sesion con el bot\n\n✧ ¡Este código QR expira en 45 segundos!."
-let rtx2 = "*❀ SER BOT • MODE CODE*\n\n✰ Usa este Código para convertirte en un *Sub-Bot* Temporal.\n\n\`1\` » Haga clic en los tres puntos en la esquina superior derecha\n\n\`2\` » Toque dispositivos vinculados\n\n\`3\` » Selecciona Vincular con el número de teléfono\n\n\`4\` » Escriba el Código para iniciar sesion con el bot\n\n✧ No es recomendable usar tu cuenta principal."
+let rtx = `
+°•☆╮⎯⃘✦⎯⃘☆•°
+❀  S E R  B O T • M O D E  Q R 
+⭒━━━━━━✧━━━━━━⭒
+
+✰ Con otro celular o en la PC escanea este QR para convertirte en un Sub-Bot temporal.
+
+➊ » Toca los tres puntos arriba a la derecha  
+➋ » Entra a *Dispositivos vinculados*  
+➌ » Escanea el código QR para iniciar sesión con el bot  
+
+✧ Este QR expira en 45 segundos.
+°•☆╯⎯⃘✦⎯⃘☆•°
+`
+let rtx2 = `
+°•☾╮⎯⃘✦⎯⃘☽•°
+❀  S E R  B O T • M O D E  C O D E
+⭒━━━━━━✧━━━━━━⭒
+
+✰ Usa este código para convertirte en un Sub-Bot temporal.
+
+➊ » Toca los tres puntos arriba a la derecha  
+➋ » Entra a *Dispositivos vinculados*  
+➌ » Selecciona *Vincular con número de teléfono*  
+➍ » Escribe el código para iniciar sesión  
+
+✧ No es recomendable usar tu cuenta principal.
+°•☾╯⎯⃘✦⎯⃘☽•°
+`
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const yukiJBOptions = {}
+const mayJBOptions = {}
 if (global.conns instanceof Array) console.log()
 else global.conns = []
 function isSubBotConnected(jid) { return global.conns.some(sock => sock?.user?.jid && sock.user.jid.split("@")[0] === jid.split("@")[0]) }
@@ -40,14 +67,14 @@ let pathYukiJadiBot = path.join(`./${jadi}/`, id)
 if (!fs.existsSync(pathYukiJadiBot)){
 fs.mkdirSync(pathYukiJadiBot, { recursive: true })
 }
-yukiJBOptions.pathYukiJadiBot = pathYukiJadiBot
-yukiJBOptions.m = m
-yukiJBOptions.conn = conn
-yukiJBOptions.args = args
-yukiJBOptions.usedPrefix = usedPrefix
-yukiJBOptions.command = command
-yukiJBOptions.fromCommand = true
-yukiJadiBot(yukiJBOptions)
+mayJBOptions.pathYukiJadiBot = pathYukiJadiBot
+mayJBOptions.m = m
+mayJBOptions.conn = conn
+mayJBOptions.args = args
+mayJBOptions.usedPrefix = usedPrefix
+mayJBOptions.command = command
+mayJBOptions.fromCommand = true
+mayJadiBot(mayJBOptions)
 global.db.data.users[m.sender].Subs = new Date * 1
 }
 handler.help = ['qr', 'code']
@@ -55,7 +82,7 @@ handler.tags = ['serbot']
 handler.command = ['qr', 'code']
 export default handler 
 
-export async function yukiJadiBot(options) {
+export async function mayJadiBot(options) {
 let { pathYukiJadiBot, m, conn, args, usedPrefix, command } = options
 if (command === 'code') {
 command = 'qr'
