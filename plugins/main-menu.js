@@ -31,15 +31,12 @@ let handler = async (m, { conn, args }) => {
 ➮ 𝐅𝐞𝐜𝐡𝐚: °❀ *${fecha}*
 ➮ 𝐓𝐢𝐩𝐨: °❀ *${(conn.user.jid == global.conn.user.jid ? 'Principal' : 'Sub-Bot')}*
 ➮ 𝐔𝐬𝐮𝐚𝐫𝐢𝐨𝐬: °❀ *${totalreg.toLocaleString()}*
-ׂ╰┈➤ *${totalCommands}* ℂ𝕠𝕞𝕒𝕟𝕕𝕠𝕤 𝕕𝕚𝕤𝕡𝕠𝕟𝕚𝕓𝕝𝕖𝕤.
-
-
-
-`.trim()
+ׂ╰┈➤ *${totalCommands}* ℂ𝕠𝕞𝕒𝕟𝕕𝕠𝕤 𝕕𝕚𝕤𝕡𝕠𝕟𝕚𝕓𝕝𝕖𝕤.\n`.trim()
 
     for (let [tag, cmds] of Object.entries(categories)) {
         let tagName = toStyled(tag)
         menuText += `
+        
 ೃ‧₊› ${tagName} ：
 ${cmds.map(cmd => `╰┈➤ ${cmd}`).join('\n')}
 
