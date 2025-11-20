@@ -50,7 +50,7 @@ ${cmds.map(cmd => `╰┈➤ ${cmd}`).join('\n')}
             externalAdReply: {
                 title: global.canalNombreM[0],
                 body: '⊱┊ MαყBσƚ ᵇʸ ˢᵒʸᵐᵃʸᶜᵒˡ ❦',
-                thumbnailUrl: 'https://files.catbox.moe/0dvlsr.jpg',
+                thumbnailUrl: 'https://i.postimg.cc/SQTP9YCm/4-sin-titulo-20251120074041.jpg',
                 sourceUrl: 'https://mayapi.ooguy.com',
                 mediaType: 1,
                 renderLargerThumbnail: true
