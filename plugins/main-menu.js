@@ -19,6 +19,9 @@ let handler = async (m, { conn, args }) => {
         }).join('')
     }
 
+    let totalreg = Object.keys(global.db.data.users).length
+    let totalCommands = Object.values(global.plugins).filter((v) => v.help && v.tags).length
+    
     let menuText = `•——————•°•✿•°•——————•
 ╰┈➤ MαყBσƚ ⌇°•
 ⊱┊ ᴴᵉᶜʰᵒ ᵖᵒʳ ${global.etiqueta}
