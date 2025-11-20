@@ -35,7 +35,7 @@ global.packsticker = `
 ᯽ᬊ Usuario: ${nombre}
 ✺ Fecha: ${fecha}
 ✹ Hora: ${hora}
-⊱┊ MαყBσƚ ᴮʸ ˢᵒʸᵐᵃʸᶜᵒˡ ·˚ *
+⊱┊ MαყBσƚ ᴮʸ ˢᵒʸᵐᵃʸᶜᵒˡ
 ⏚⭒°•☆╯⎯⃘✦⎯⃘☆•°
 `
   
