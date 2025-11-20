@@ -46,7 +46,7 @@ ${cmds.map(cmd => `╰┈➤ ${cmd}`).join('\n')}
         contextInfo: {
             externalAdReply: {
                 title: global.canalNombreM[0],
-                body: 'MαყBσƚ',
+                body: '⊱┊ MαყBσƚ ᵇʸ ˢᵒʸᵐᵃʸᶜᵒˡ ❦',
                 thumbnailUrl: 'https://files.catbox.moe/0dvlsr.jpg',
                 sourceUrl: 'https://mayapi.ooguy.com',
                 mediaType: 1,
