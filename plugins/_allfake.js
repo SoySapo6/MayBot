@@ -6,11 +6,11 @@ import moment from 'moment-timezone'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto } = pkg
 
 var handler = m => m
-handler.all = async function (m) { 
+handler.all = async function (m) {
+
 global.canalIdM = ["120363406779062566@newsletter"]
 global.canalNombreM = ["𝐒𝐨𝐲𝐌𝐚𝐲𝐜𝐨𝐥 <𝟑 • Actualizaciones"]
 global.channelRD = await getRandomChannel()
-
 global.d = new Date(new Date + 3600000)
 global.locale = 'es'
 global.dia = d.toLocaleDateString(locale, {weekday: 'long'})
