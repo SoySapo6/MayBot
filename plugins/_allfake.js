@@ -18,7 +18,8 @@ global.fecha = d.toLocaleDateString('es', {day: 'numeric', month: 'numeric', yea
 global.mes = d.toLocaleDateString('es', {month: 'long'})
 global.año = d.toLocaleDateString('es', {year: 'numeric'})
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true})
-
+global.hora = d.toLocaleString('es-ES', {hour: '2-digit', minute: '2-digit', second: '2-digit'})
+  
 var canal = 'https://whatsapp.com/channel/0029VbBBNfH4Y9ltpS4C8w3c'  
 var comunidad = 'https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY'
 var git = 'https://github.com/SoySapo6'
