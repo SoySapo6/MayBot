@@ -27,8 +27,8 @@ var comunidad = 'https://chat.whatsapp.com/KqkJwla1aq1LgaPiuFFtEY'
 var git = 'https://github.com/SoySapo6'
 var github = 'https://github.com/SoySapo6/MayBot'
 var correo = 'soymaycol.cn@gmail.com'
-global.redes = [canal, comunidad, git, github, correo].getRandom()
-
+global.redes = pickRandom([canal, comunidad, git, github, correo])
+  
 let nombre = m.pushName || 'Anónimo'
 let botname = global.botName || 'MαყBσƚ'
 
