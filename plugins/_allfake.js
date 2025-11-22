@@ -5,11 +5,11 @@ import axios from 'axios'
 import moment from 'moment-timezone'
 const { generateWAMessageFromContent, prepareWAMessageMedia, proto } = pkg
 
-var handler = m => m
-handler.all = async function (m) {
-
 global.canalIdM = ["120363406779062566@newsletter"]
 global.canalNombreM = ["𝐒𝐨𝐲𝐌𝐚𝐲𝐜𝐨𝐥 <𝟑 • Actualizaciones"]
+
+var handler = m => m
+handler.all = async function (m) {
 
 global.channelRD = await getRandomChannel()
 
