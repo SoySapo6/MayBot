@@ -37,13 +37,11 @@ await conn.sendMessage(m.chat, { image: thumb, caption: info }, { quoted: m })
 if (['play', 'yta', 'ytmp3', 'playaudio'].includes(command)) {
 const audio = await getAud(url)
 if (!audio?.url) throw '⚠ No se pudo obtener el audio.'
-m.reply(`⊱┊ Audio procesado. Servidor: ${audio.api}`)
 await conn.sendMessage(m.chat, { audio: { url: audio.url }, fileName: `${title}.mp3`, mimetype: 'audio/mpeg' }, { quoted: m })
 await m.react('✔️')
 } else if (['play2', 'ytv', 'ytmp4', 'mp4'].includes(command)) {
 const video = await getVid(url)
 if (!video?.url) throw '⚠ No se pudo obtener el video.'
-m.reply(`⊱┊ Vídeo procesado. Servidor: ${video.api}`)
 await conn.sendFile(m.chat, video.url, `${title}.mp4`, `⊱┊ ${title}`, m)
 await m.react('✔️')
 }
